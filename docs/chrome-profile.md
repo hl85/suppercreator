@@ -2,7 +2,7 @@
 
 All CDP skills share a single profile directory. Do NOT create per-skill profiles.
 
-Override: `BAOYU_CHROME_PROFILE_DIR` env var (takes priority over all defaults).
+Override: `SC_CHROME_PROFILE_DIR` env var (takes priority over all defaults).
 
 | Platform | Default Path |
 |----------|-------------|
@@ -11,13 +11,13 @@ Override: `BAOYU_CHROME_PROFILE_DIR` env var (takes priority over all defaults).
 | Windows | `%APPDATA%/baoyu-skills/chrome-profile` |
 | WSL | Windows home `/.local/share/baoyu-skills/chrome-profile` |
 
-New skills: use `BAOYU_CHROME_PROFILE_DIR` only (not per-skill env vars like `X_BROWSER_PROFILE_DIR`).
+New skills: use `SC_CHROME_PROFILE_DIR` only (not per-skill env vars like `X_BROWSER_PROFILE_DIR`).
 
 ## Implementation Pattern
 
 ```typescript
 function getDefaultProfileDir(): string {
-  const override = process.env.BAOYU_CHROME_PROFILE_DIR?.trim();
+  const override = process.env.SC_CHROME_PROFILE_DIR?.trim();
   if (override) return path.resolve(override);
   const base = process.platform === 'darwin'
     ? path.join(os.homedir(), 'Library', 'Application Support')

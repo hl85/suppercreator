@@ -30,7 +30,7 @@ Execute: `${BUN_X} skills/<skill>/scripts/main.ts [options]`
 ## Key Dependencies
 
 - **Bun**: TypeScript runtime (`bun` preferred, fallback `npx -y bun`)
-- **Chrome**: Required for CDP-based skills (gemini-web, post-to-x/wechat/weibo, url-to-markdown). All CDP skills share a single profile, override via `BAOYU_CHROME_PROFILE_DIR` env var. Platform paths: [docs/chrome-profile.md](docs/chrome-profile.md)
+- **Chrome**: Required for CDP-based skills (gemini-web, post-to-x/wechat/weibo, url-to-markdown). All CDP skills share a single profile, override via `SC_CHROME_PROFILE_DIR` env var. Platform paths: [docs/chrome-profile.md](docs/chrome-profile.md)
 - **Image generation APIs**: `baoyu-imagine` requires API key (OpenAI, Azure OpenAI, Google, OpenRouter, DashScope, or Replicate) configured in EXTEND.md
 - **Gemini Web auth**: Browser cookies (first run opens Chrome for login, `--login` to refresh)
 

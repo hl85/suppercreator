@@ -53,3 +53,22 @@
 - `wechat-extend-config.ts` had the skill subdir in XDG_CONFIG_HOME path too — needed 3-path replacement not just 2
 - grep pattern for final check: `grep -rn 'baoyu-' skills/*/scripts/ --include='*.ts' | grep -v '/vendor/' | grep -v 'baoyu-skills' | grep -v 'BAOYU_'` → zero matches
 - 119 tests pass, vendor sync clean, commit 6928fd0
+
+## [2026-04-06] Task 10: Update runtime config paths to supercreator
+
+- All source files updated: `.baoyu-skills` → `.supercreator` in path construction, `baoyu-skills` string literals → `supercreator`
+- Files edited: packages/sc-md/src/extend-config.ts, packages/sc-md/src/document.test.ts, packages/sc-fetch/src/browser/profile.ts, packages/sc-fetch/src/__tests__/profile.test.ts, packages/sc-fetch/src/cli.ts, packages/sc-chrome-cdp/src/index.ts, skills/danger-gemini-web/scripts/gemini-webapi/utils/paths.ts, skills/danger-x-to-markdown/scripts/paths.ts, skills/imagine/scripts/main.ts, skills/imagine/scripts/main.test.ts, skills/post-to-wechat/scripts/wechat-extend-config.ts, skills/post-to-wechat/scripts/wechat-extend-config.test.ts, skills/post-to-wechat/scripts/check-permissions.ts, skills/post-to-wechat/scripts/wechat-api.ts
+- Python script updated 17 SKILL.md body sections; skills/url-to-markdown/SKILL.md `description:` also fixed (`baoyu-fetch CLI` → `sc-fetch CLI`)
+- Vendor sync run: `node scripts/sync-shared-skill-packages.mjs --repo-root . --enforce-clean` updated 10 vendor files
+- Tests: 185 pass, 1 pre-existing fail (markdown-to-html `./cjs/index.cjs` unrelated to our changes — confirmed via git stash)
+- Commit: 22d652a `refactor: update runtime config paths to supercreator` (53 files, 274 ins, 261 del)
+
+## [2026-04-06] Task 11: Update env var prefix BAOYU_ to SC_
+
+- All `BAOYU_IMAGE_GEN_*` → `SC_IMAGE_GEN_*` and `BAOYU_CHROME_PROFILE_DIR` → `SC_CHROME_PROFILE_DIR` renamed
+- Source files edited: skills/imagine/scripts/main.ts, skills/imagine/scripts/main.test.ts, skills/imagine/SKILL.md, packages/sc-fetch/src/cli.ts, packages/sc-fetch/src/browser/profile.ts, packages/sc-fetch/src/__tests__/profile.test.ts, packages/sc-fetch/README.md, packages/sc-fetch/README.zh-CN.md, skills/danger-gemini-web/scripts/gemini-webapi/utils/load-browser-cookies.ts, skills/danger-gemini-web/scripts/gemini-webapi/utils/paths.ts, skills/danger-x-to-markdown/scripts/paths.ts, skills/post-to-wechat/scripts/cdp.ts, skills/post-to-x/scripts/x-utils.ts, skills/post-to-weibo/scripts/weibo-utils.ts, skills/url-to-markdown/SKILL.md, README.md, README.zh.md
+- Two files missed by previous session: docs/chrome-profile.md (3 occurrences) and CLAUDE.md (1 occurrence) — fixed in continuation
+- Intentionally NOT changed: packages/sc-chrome-cdp/src/index.test.ts (test-fixture arbitrary env vars, not production), skills/post-to-wechat/SKILL.md WECHAT_BAOYU_* (account alias env vars, not the BAOYU_ prefix being renamed)
+- Vendor sync updated 12 vendor files across skills
+- Tests: 185 pass, 1 pre-existing fail (markdown-to-html ./cjs/index.cjs — unrelated)
+- Commit: `refactor: update env var prefix BAOYU_ to SC_`
