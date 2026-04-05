@@ -40,7 +40,7 @@ describe("resolveChromeProfileDir", () => {
 
 describe("ensureChromeProfileDir", () => {
   test("creates the profile directory when missing", () => {
-    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "baoyu-fetch-profile-"));
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "sc-fetch-profile-"));
     const profileDir = path.join(tempRoot, "nested", "chrome-profile");
 
     try {

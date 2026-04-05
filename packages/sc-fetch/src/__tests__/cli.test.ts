@@ -59,7 +59,7 @@ describe("parseArgs", () => {
   });
 
   test("documents wait modes in help text", () => {
-    expect(HELP_TEXT).toContain("baoyu-fetch");
+    expect(HELP_TEXT).toContain("sc-fetch");
     expect(HELP_TEXT).toContain("--format <type>");
     expect(HELP_TEXT).toContain("--wait-for <mode>");
     expect(HELP_TEXT).toContain("--download-media");
