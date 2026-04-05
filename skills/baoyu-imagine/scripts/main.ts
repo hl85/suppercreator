@@ -2,7 +2,7 @@ import path from "node:path";
 import process from "node:process";
 import { homedir } from "node:os";
 import { fileURLToPath } from "node:url";
-import { access, mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { access, readFile, writeFile } from "node:fs/promises";
 import type {
   BatchFile,
   BatchTaskInput,
@@ -498,21 +498,10 @@ async function exists(filePath: string): Promise<boolean> {
   }
 }
 
-async function migrateLegacyExtendConfig(cwd: string, home: string): Promise<void> {
-  for (const { current, legacy } of getExtendConfigPathPairs(cwd, home)) {
-    const [hasCurrent, hasLegacy] = await Promise.all([exists(current), exists(legacy)]);
-    if (hasCurrent || !hasLegacy) continue;
-    await mkdir(path.dirname(current), { recursive: true });
-    await rename(legacy, current);
-  }
-}
-
 export async function loadExtendConfig(
   cwd = process.cwd(),
   home = homedir(),
 ): Promise<Partial<ExtendConfig>> {
-  await migrateLegacyExtendConfig(cwd, home);
-
   const paths = getExtendConfigPathPairs(cwd, home).map(({ current }) => current);
 
   for (const p of paths) {

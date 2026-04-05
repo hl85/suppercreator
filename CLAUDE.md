@@ -54,7 +54,6 @@ Priority: project `skills/` → `$HOME/.baoyu-skills/` → system-level.
 
 | Skill | Note |
 |-------|------|
-| `baoyu-image-gen` | Migrated to `baoyu-imagine`. Do NOT add to `.claude-plugin/marketplace.json`. Do NOT update README for this skill. |
 
 ## Release Process
 

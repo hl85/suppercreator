@@ -171,7 +171,7 @@ batch:
   });
 });
 
-test("loadExtendConfig renames legacy EXTEND.md when the new path is missing", async () => {
+test("loadExtendConfig ignores legacy EXTEND.md when the new path is missing", async () => {
   const root = await makeTempDir("baoyu-imagine-extend-");
   const cwd = path.join(root, "project");
   const home = path.join(root, "home");
@@ -188,10 +188,9 @@ default_quality: 2k
 
   const config = await loadExtendConfig(cwd, home);
 
-  assert.equal(config.default_provider, "google");
-  assert.equal(config.default_quality, "2k");
-  await fs.access(currentPath);
-  await assert.rejects(() => fs.access(legacyPath));
+  assert.deepEqual(config, {});
+  await assert.rejects(() => fs.access(currentPath));
+  await fs.access(legacyPath);
 });
 
 test("loadExtendConfig leaves legacy EXTEND.md untouched when both paths exist", async () => {
