@@ -8,10 +8,10 @@ import {
 } from "./commands/convert";
 
 export const HELP_TEXT = `
-baoyu-fetch - Read a URL into Markdown or JSON with Chrome CDP
+sc-fetch - Read a URL into Markdown or JSON with Chrome CDP
 
 Usage:
-  baoyu-fetch <url> [options]
+  sc-fetch <url> [options]
 
 Options:
   --output <file>       Save output to file
@@ -45,11 +45,11 @@ Options:
   --help                Show help
 
 Examples:
-  baoyu-fetch https://example.com
-  baoyu-fetch https://example.com --format markdown --output article.md --download-media
-  baoyu-fetch https://example.com --format json --output article.json
-  baoyu-fetch https://x.com/lennysan/status/2036483059407810640 --wait-for interaction
-  baoyu-fetch https://x.com/lennysan/status/2036483059407810640 --wait-for force
+  sc-fetch https://example.com
+  sc-fetch https://example.com --format markdown --output article.md --download-media
+  sc-fetch https://example.com --format json --output article.json
+  sc-fetch https://x.com/lennysan/status/2036483059407810640 --wait-for interaction
+  sc-fetch https://x.com/lennysan/status/2036483059407810640 --wait-for force
 `.trim();
 
 interface CliOptions extends ConvertCommandOptions {

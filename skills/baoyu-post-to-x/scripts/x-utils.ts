@@ -17,10 +17,10 @@ import {
   sleep,
   waitForChromeDebugPort,
   type PlatformCandidates,
-} from 'baoyu-chrome-cdp';
+} from 'sc-chrome-cdp';
 
 export { CdpConnection, gracefulKillChrome, killChrome, openPageSession, sleep, waitForChromeDebugPort };
-export type { PlatformCandidates } from 'baoyu-chrome-cdp';
+export type { PlatformCandidates } from 'sc-chrome-cdp';
 
 const X_SESSION_URLS = ['https://x.com/', 'https://twitter.com/'] as const;
 const REQUIRED_X_SESSION_COOKIES = ['auth_token', 'ct0'] as const;

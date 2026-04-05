@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "baoyu-fetch": "file:./vendor/baoyu-fetch"
+    "sc-fetch": "file:./vendor/sc-fetch"
   }
 }

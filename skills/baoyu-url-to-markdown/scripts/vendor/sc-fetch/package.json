@@ -1,10 +1,10 @@
 {
-  "name": "baoyu-fetch",
+  "name": "sc-fetch",
   "version": "0.1.1",
   "description": "Read URLs into high-quality Markdown or JSON with Chrome CDP and site adapters.",
   "type": "module",
   "bin": {
-    "baoyu-fetch": "./src/cli.ts"
+    "sc-fetch": "./src/cli.ts"
   },
   "files": [
     "README.zh-CN.md",
@@ -21,12 +21,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JimLiu/baoyu-skills.git",
-    "directory": "packages/baoyu-fetch"
+    "directory": "packages/sc-fetch"
   },
   "bugs": {
     "url": "https://github.com/JimLiu/baoyu-skills/issues"
   },
-  "homepage": "https://github.com/JimLiu/baoyu-skills/tree/main/packages/baoyu-fetch#readme",
+  "homepage": "https://github.com/JimLiu/baoyu-skills/tree/main/packages/sc-fetch#readme",
   "publishConfig": {
     "access": "public"
   },

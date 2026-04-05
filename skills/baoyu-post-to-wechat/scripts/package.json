@@ -4,8 +4,8 @@
   "type": "module",
   "dependencies": {
     "@jsquash/webp": "^1.5.0",
-    "baoyu-chrome-cdp": "file:./vendor/baoyu-chrome-cdp",
-    "baoyu-md": "file:./vendor/baoyu-md",
+    "sc-chrome-cdp": "file:./vendor/sc-chrome-cdp",
+    "sc-md": "file:./vendor/sc-md",
     "jimp": "^1.6.0"
   }
 }

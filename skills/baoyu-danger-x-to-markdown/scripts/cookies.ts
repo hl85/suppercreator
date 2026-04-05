@@ -9,7 +9,7 @@ import {
   sleep,
   waitForChromeDebugPort,
   type PlatformCandidates,
-} from "baoyu-chrome-cdp";
+} from "sc-chrome-cdp";
 
 import process from "node:process";
 

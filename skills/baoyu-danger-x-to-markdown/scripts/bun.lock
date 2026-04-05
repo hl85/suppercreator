@@ -5,11 +5,11 @@
     "": {
       "name": "baoyu-danger-x-to-markdown-scripts",
       "dependencies": {
-        "baoyu-chrome-cdp": "file:./vendor/baoyu-chrome-cdp",
+        "sc-chrome-cdp": "file:./vendor/sc-chrome-cdp",
       },
     },
   },
   "packages": {
-    "baoyu-chrome-cdp": ["baoyu-chrome-cdp@file:vendor/baoyu-chrome-cdp", {}],
+    "sc-chrome-cdp": ["sc-chrome-cdp@file:vendor/sc-chrome-cdp", {}],
   }
 }

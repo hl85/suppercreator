@@ -13,7 +13,7 @@ import {
   resolveContentImages,
   serializeFrontmatter,
   stripWrappingQuotes,
-} from "baoyu-md";
+} from "sc-md";
 
 interface ImageInfo {
   placeholder: string;

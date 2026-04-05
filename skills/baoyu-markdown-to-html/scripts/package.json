@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "baoyu-md": "file:./vendor/baoyu-md"
+    "sc-md": "file:./vendor/sc-md"
   }
 }

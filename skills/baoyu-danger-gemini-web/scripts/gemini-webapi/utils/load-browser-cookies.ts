@@ -12,7 +12,7 @@ import {
   sleep,
   waitForChromeDebugPort,
   type PlatformCandidates,
-} from 'baoyu-chrome-cdp';
+} from 'sc-chrome-cdp';
 
 import { Endpoint, Headers } from '../constants.js';
 import { logger } from './logger.js';
