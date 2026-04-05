@@ -66,7 +66,7 @@ test("buildMarkdownDocumentMeta prefers frontmatter and falls back to markdown t
     "# Markdown Title\n\nBody summary paragraph that should be ignored.",
     {
       title: `" YAML Title "`,
-      author: "'Baoyu'",
+       author: "'TestAuthor'",
       summary: `" YAML Summary "`,
     },
     "fallback",
@@ -74,7 +74,7 @@ test("buildMarkdownDocumentMeta prefers frontmatter and falls back to markdown t
 
   assert.deepEqual(metaFromYaml, {
     title: "YAML Title",
-    author: "Baoyu",
+    author: "TestAuthor",
     description: "YAML Summary",
   });
 

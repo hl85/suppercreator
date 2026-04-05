@@ -23,7 +23,7 @@ test("buildHtmlDocument includes optional meta tags and code theme CSS", () => {
   const html = buildHtmlDocument(
     {
       title: "Doc",
-      author: "Baoyu",
+      author: "TestAuthor",
       description: "Summary",
     },
     "body { color: red; }",
@@ -32,7 +32,7 @@ test("buildHtmlDocument includes optional meta tags and code theme CSS", () => {
   );
 
   assert.match(html, /<title>Doc<\/title>/);
-  assert.match(html, /meta name="author" content="Baoyu"/);
+  assert.match(html, /meta name="author" content="TestAuthor"/);
   assert.match(html, /meta name="description" content="Summary"/);
   assert.match(html, /<style>body \{ color: red; \}<\/style>/);
   assert.match(html, /<style>\.hljs \{ color: blue; \}<\/style>/);
