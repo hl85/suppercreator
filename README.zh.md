@@ -775,9 +775,9 @@ AI 驱动的生成后端。
 | `JIMENG_BASE_URL` | 自定义即梦端点 | `https://visual.volcengineapi.com` |
 | `JIMENG_REGION` | 即梦区域 | `cn-north-1` |
 | `SEEDREAM_BASE_URL` | 自定义豆包端点 | `https://ark.cn-beijing.volces.com/api/v3` |
-| `BAOYU_IMAGE_GEN_MAX_WORKERS` | 批量模式最大 worker 数 | `10` |
-| `BAOYU_IMAGE_GEN_<PROVIDER>_CONCURRENCY` | 覆盖 provider 并发数 | provider 默认值 |
-| `BAOYU_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS` | 覆盖 provider 请求启动间隔 | provider 默认值 |
+| `SC_IMAGE_GEN_MAX_WORKERS` | 批量模式最大 worker 数 | `10` |
+| `SC_IMAGE_GEN_<PROVIDER>_CONCURRENCY` | 覆盖 provider 并发数 | provider 默认值 |
+| `SC_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS` | 覆盖 provider 请求启动间隔 | provider 默认值 |
 
 **Provider 说明**：
 - Azure OpenAI：`--model` 表示 Azure deployment name，不是底层模型家族名。

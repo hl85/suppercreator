@@ -775,9 +775,9 @@ AI SDK-based image generation using OpenAI, Azure OpenAI, Google, OpenRouter, Da
 | `JIMENG_BASE_URL` | Custom Jimeng endpoint | `https://visual.volcengineapi.com` |
 | `JIMENG_REGION` | Jimeng region | `cn-north-1` |
 | `SEEDREAM_BASE_URL` | Custom Seedream endpoint | `https://ark.cn-beijing.volces.com/api/v3` |
-| `BAOYU_IMAGE_GEN_MAX_WORKERS` | Override batch worker cap | `10` |
-| `BAOYU_IMAGE_GEN_<PROVIDER>_CONCURRENCY` | Override provider concurrency | provider-specific |
-| `BAOYU_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS` | Override provider request start gap | provider-specific |
+| `SC_IMAGE_GEN_MAX_WORKERS` | Override batch worker cap | `10` |
+| `SC_IMAGE_GEN_<PROVIDER>_CONCURRENCY` | Override provider concurrency | provider-specific |
+| `SC_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS` | Override provider request start gap | provider-specific |
 
 **Provider Notes**:
 - Azure OpenAI: `--model` means Azure deployment name, not the underlying model family.

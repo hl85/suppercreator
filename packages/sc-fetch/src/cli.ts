@@ -24,8 +24,8 @@ Options:
   --cdp-url <url>       Reuse an existing Chrome DevTools endpoint
   --browser-path <path> Explicit Chrome binary path
   --chrome-profile-dir <path>
-                        Chrome user data dir. Defaults to BAOYU_CHROME_PROFILE_DIR
-                        or baoyu-skills/chrome-profile.
+                        Chrome user data dir. Defaults to SC_CHROME_PROFILE_DIR
+                        or supercreator/chrome-profile.
   --headless            Launch a temporary headless Chrome if needed
   --wait-for <mode>     Wait mode: interaction | force
                         interaction: start visible Chrome and auto-wait only when login or verification is required

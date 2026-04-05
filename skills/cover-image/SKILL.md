@@ -133,17 +133,17 @@ Analyze + Save Refs → [Output Dir] → [Confirm: 6 Dimensions] → Prompt → 
 Check EXTEND.md existence (priority: project → user):
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/cover-image/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/cover-image/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/cover-image/EXTEND.md" && echo "user"
+test -f .supercreator/cover-image/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/cover-image/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/cover-image/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/cover-image/EXTEND.md) { "project" }
+if (Test-Path .supercreator/cover-image/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/cover-image/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/cover-image/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/cover-image/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/cover-image/EXTEND.md") { "user" }
 ```
 
 | Result | Action |

@@ -30,23 +30,23 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/translate/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/translate/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/translate/EXTEND.md" && echo "user"
+test -f .supercreator/translate/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/translate/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/translate/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/translate/EXTEND.md) { "project" }
+if (Test-Path .supercreator/translate/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/translate/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/translate/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/translate/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/translate/EXTEND.md") { "user" }
 ```
 
 | Path | Location |
 |------|----------|
-| `.baoyu-skills/translate/EXTEND.md` | Project directory |
-| `$HOME/.baoyu-skills/translate/EXTEND.md` | User home |
+| `.supercreator/translate/EXTEND.md` | Project directory |
+| `$HOME/.supercreator/translate/EXTEND.md` | User home |
 
 | Result | Action |
 |--------|--------|

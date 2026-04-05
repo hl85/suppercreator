@@ -30,17 +30,17 @@ Check EXTEND.md existence (priority: project → user):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/imagine/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/imagine/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/imagine/EXTEND.md" && echo "user"
+test -f .supercreator/imagine/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/imagine/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/imagine/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/imagine/EXTEND.md) { "project" }
+if (Test-Path .supercreator/imagine/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/imagine/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/imagine/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/imagine/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/imagine/EXTEND.md") { "user" }
 ```
 
 | Result | Action |
@@ -52,10 +52,10 @@ if (Test-Path "$HOME/.baoyu-skills/imagine/EXTEND.md") { "user" }
 
 | Path | Location |
 |------|----------|
-| `.baoyu-skills/imagine/EXTEND.md` | Project directory |
-| `$HOME/.baoyu-skills/imagine/EXTEND.md` | User home |
+| `.supercreator/imagine/EXTEND.md` | Project directory |
+| `$HOME/.supercreator/imagine/EXTEND.md` | User home |
 
-Legacy compatibility: if `.baoyu-skills/image-gen/EXTEND.md` exists and the new path does not, runtime renames it to `imagine`. If both files exist, runtime leaves them unchanged and uses the new path.
+Legacy compatibility: if `.supercreator/image-gen/EXTEND.md` exists and the new path does not, runtime renames it to `imagine`. If both files exist, runtime leaves them unchanged and uses the new path.
 
 **EXTEND.md Supports**: Default provider | Default quality | Default aspect ratio | Default image size | Default models | Batch worker cap | Provider-specific batch limits
 
@@ -208,11 +208,11 @@ Paths in `promptFiles`, `image`, and `ref` are resolved relative to the batch fi
 | `JIMENG_BASE_URL` | Custom Jimeng endpoint (default: `https://visual.volcengineapi.com`) |
 | `JIMENG_REGION` | Jimeng region (default: `cn-north-1`) |
 | `SEEDREAM_BASE_URL` | Custom Seedream endpoint (default: `https://ark.cn-beijing.volces.com/api/v3`) |
-| `BAOYU_IMAGE_GEN_MAX_WORKERS` | Override batch worker cap |
-| `BAOYU_IMAGE_GEN_<PROVIDER>_CONCURRENCY` | Override provider concurrency, e.g. `BAOYU_IMAGE_GEN_REPLICATE_CONCURRENCY` |
-| `BAOYU_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS` | Override provider start gap, e.g. `BAOYU_IMAGE_GEN_REPLICATE_START_INTERVAL_MS` |
+| `SC_IMAGE_GEN_MAX_WORKERS` | Override batch worker cap |
+| `SC_IMAGE_GEN_<PROVIDER>_CONCURRENCY` | Override provider concurrency, e.g. `SC_IMAGE_GEN_REPLICATE_CONCURRENCY` |
+| `SC_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS` | Override provider start gap, e.g. `SC_IMAGE_GEN_REPLICATE_START_INTERVAL_MS` |
 
-**Load Priority**: CLI args > EXTEND.md > env vars > `<cwd>/.baoyu-skills/.env` > `~/.baoyu-skills/.env`
+**Load Priority**: CLI args > EXTEND.md > env vars > `<cwd>/.supercreator/.env` > `~/.supercreator/.env`
 
 ## Model Resolution
 

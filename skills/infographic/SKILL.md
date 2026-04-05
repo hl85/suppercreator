@@ -147,25 +147,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/infographic/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/infographic/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/infographic/EXTEND.md" && echo "user"
+test -f .supercreator/infographic/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/infographic/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/infographic/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/infographic/EXTEND.md) { "project" }
+if (Test-Path .supercreator/infographic/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/infographic/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/infographic/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/infographic/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/infographic/EXTEND.md") { "user" }
 ```
 
 ┌────────────────────────────────────────────────────┬───────────────────┐
 │                        Path                        │     Location      │
 ├────────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/infographic/EXTEND.md          │ Project directory │
+│ .supercreator/infographic/EXTEND.md          │ Project directory │
 ├────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/infographic/EXTEND.md    │ User home         │
+│ $HOME/.supercreator/infographic/EXTEND.md    │ User home         │
 └────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐

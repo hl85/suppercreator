@@ -36,8 +36,8 @@ Text/image generation via Gemini Web API. Supports reference images and multi-tu
 Before first use, verify user consent for reverse-engineered API usage.
 
 **Consent file locations**:
-- macOS: `~/Library/Application Support/baoyu-skills/gemini-web/consent.json`
-- Linux: `~/.local/share/baoyu-skills/gemini-web/consent.json`
+- macOS: `~/Library/Application Support/supercreator/gemini-web/consent.json`
+- Linux: `~/.local/share/supercreator/gemini-web/consent.json`
 - Windows: `%APPDATA%\baoyu-skills\gemini-web\consent.json`
 
 **Flow**:
@@ -56,25 +56,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/danger-gemini-web/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/danger-gemini-web/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/danger-gemini-web/EXTEND.md" && echo "user"
+test -f .supercreator/danger-gemini-web/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/danger-gemini-web/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/danger-gemini-web/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/danger-gemini-web/EXTEND.md) { "project" }
+if (Test-Path .supercreator/danger-gemini-web/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/danger-gemini-web/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/danger-gemini-web/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/danger-gemini-web/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/danger-gemini-web/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────────────┬───────────────────┐
 │                           Path                           │     Location      │
 ├──────────────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/danger-gemini-web/EXTEND.md          │ Project directory │
+│ .supercreator/danger-gemini-web/EXTEND.md          │ Project directory │
 ├──────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/danger-gemini-web/EXTEND.md    │ User home         │
+│ $HOME/.supercreator/danger-gemini-web/EXTEND.md    │ User home         │
 └──────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐

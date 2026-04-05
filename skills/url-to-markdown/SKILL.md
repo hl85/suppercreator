@@ -1,6 +1,6 @@
 ---
 name: baoyu-url-to-markdown
-description: Fetch any URL and convert to markdown using baoyu-fetch CLI (Chrome CDP with site-specific adapters). Built-in adapters for X/Twitter, YouTube transcripts, Hacker News threads, and generic pages via Defuddle. Handles login/CAPTCHA via interaction wait modes. Use when user wants to save a webpage as markdown.
+description: Fetch any URL and convert to markdown using sc-fetch CLI (Chrome CDP with site-specific adapters). Built-in adapters for X/Twitter, YouTube transcripts, Hacker News threads, and generic pages via Defuddle. Handles login/CAPTCHA via interaction wait modes. Use when user wants to save a webpage as markdown.
 version: 1.60.0
 metadata:
   openclaw:
@@ -32,23 +32,23 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/url-to-markdown/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/url-to-markdown/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/url-to-markdown/EXTEND.md" && echo "user"
+test -f .supercreator/url-to-markdown/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/url-to-markdown/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/url-to-markdown/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/url-to-markdown/EXTEND.md) { "project" }
+if (Test-Path .supercreator/url-to-markdown/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/url-to-markdown/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/url-to-markdown/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/url-to-markdown/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/url-to-markdown/EXTEND.md") { "user" }
 ```
 
 | Path | Location |
 |------|----------|
-| `.baoyu-skills/url-to-markdown/EXTEND.md` | Project directory |
-| `$HOME/.baoyu-skills/url-to-markdown/EXTEND.md` | User home |
+| `.supercreator/url-to-markdown/EXTEND.md` | Project directory |
+| `$HOME/.supercreator/url-to-markdown/EXTEND.md` | User home |
 
 | Result | Action |
 |--------|--------|
@@ -73,8 +73,8 @@ Use `AskUserQuestion` with ALL questions in ONE call:
 - (User may choose "Other" to type a custom path)
 
 **Question 3** — header: "Save", question: "Where to save preferences?"
-- "User (Recommended)" — ~/.baoyu-skills/ (all projects)
-- "Project" — .baoyu-skills/ (this project only)
+- "User (Recommended)" — ~/.supercreator/ (all projects)
+- "Project" — .supercreator/ (this project only)
 
 After user answers, create EXTEND.md at the chosen location, confirm "Preferences saved to [path]", then continue.
 
@@ -169,7 +169,7 @@ ${READER} <url> --output article.md --debug-dir ./debug/
 | `--media-dir <dir>` | Base directory for downloaded media (default: same as `--output` directory) |
 | `--cdp-url <url>` | Reuse existing Chrome DevTools Protocol endpoint |
 | `--browser-path <path>` | Custom Chrome/Chromium binary path |
-| `--chrome-profile-dir <path>` | Chrome user data directory (default: `BAOYU_CHROME_PROFILE_DIR` env or `./baoyu-skills/chrome-profile`) |
+| `--chrome-profile-dir <path>` | Chrome user data directory (default: `SC_CHROME_PROFILE_DIR` env or `./supercreator/chrome-profile`) |
 | `--debug-dir <dir>` | Write debug artifacts (document.json, markdown.md, page.html, network.json) |
 
 ## Capture Modes
@@ -296,7 +296,7 @@ Based on `download_media` setting in EXTEND.md:
 
 | Variable | Description |
 |----------|-------------|
-| `BAOYU_CHROME_PROFILE_DIR` | Chrome user data directory (can also use `--chrome-profile-dir`) |
+| `SC_CHROME_PROFILE_DIR` | Chrome user data directory (can also use `--chrome-profile-dir`) |
 
 **Troubleshooting**: Chrome not found → use `--browser-path`. Timeout → increase `--timeout`. Login/CAPTCHA pages → use `--wait-for interaction`. Debug → use `--debug-dir` to inspect captured HTML and network logs.
 

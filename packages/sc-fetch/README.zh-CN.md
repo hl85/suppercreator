@@ -70,8 +70,8 @@ Options:
   --cdp-url <url>       连接现有 Chrome 调试地址
   --browser-path <path> 指定 Chrome 可执行文件
   --chrome-profile-dir <path>
-                        指定 Chrome profile 目录。默认使用 BAOYU_CHROME_PROFILE_DIR，
-                        否则回退到 baoyu-skills/chrome-profile
+                        指定 Chrome profile 目录。默认使用 SC_CHROME_PROFILE_DIR，
+                        否则回退到 supercreator/chrome-profile
   --headless            启动临时 headless Chrome（未连现有实例时）
   --wait-for <mode>     等待模式：interaction | force
   --wait-for-interaction

@@ -86,7 +86,7 @@ export function killChromeByProfile(profileDir: string): void {
 
 export function getDefaultProfileDir(): string {
   return resolveSharedChromeProfileDir({
-    envNames: ['BAOYU_CHROME_PROFILE_DIR', 'WEIBO_BROWSER_PROFILE_DIR'],
+    envNames: ['SC_CHROME_PROFILE_DIR', 'WEIBO_BROWSER_PROFILE_DIR'],
     wslWindowsHome: getWslWindowsHome(),
   });
 }

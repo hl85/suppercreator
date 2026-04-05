@@ -41,7 +41,7 @@ export function resolveSharedChromeProfileDir(
     }
   }
 
-  const appDataDirName = options.appDataDirName ?? "baoyu-skills";
+  const appDataDirName = options.appDataDirName ?? "supercreator";
   const profileDirName = options.profileDirName ?? "chrome-profile";
   return path.join(resolveDataBaseDir(), appDataDirName, profileDirName);
 }
@@ -52,8 +52,8 @@ export function resolveChromeProfileDir(profileDir?: string): string {
   }
 
   return resolveSharedChromeProfileDir({
-    envNames: ["BAOYU_CHROME_PROFILE_DIR"],
-    appDataDirName: "baoyu-skills",
+    envNames: ["SC_CHROME_PROFILE_DIR"],
+    appDataDirName: "supercreator",
     profileDirName: "chrome-profile",
   });
 }

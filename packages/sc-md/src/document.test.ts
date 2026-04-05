@@ -107,8 +107,8 @@ test("resolveRenderOptions loads workspace EXTEND settings and lets explicit opt
 
   const extendPath = path.join(
     root,
-    ".baoyu-skills",
-    "baoyu-markdown-to-html",
+    ".supercreator",
+    "markdown-to-html",
     "EXTEND.md",
   );
   await fs.mkdir(path.dirname(extendPath), { recursive: true });

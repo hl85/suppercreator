@@ -286,25 +286,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/xhs-images/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/xhs-images/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/xhs-images/EXTEND.md" && echo "user"
+test -f .supercreator/xhs-images/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/xhs-images/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/xhs-images/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/xhs-images/EXTEND.md) { "project" }
+if (Test-Path .supercreator/xhs-images/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/xhs-images/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/xhs-images/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/xhs-images/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/xhs-images/EXTEND.md") { "user" }
 ```
 
 ┌────────────────────────────────────────────────────┬───────────────────┐
 │                        Path                        │     Location      │
 ├────────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/xhs-images/EXTEND.md           │ Project directory │
+│ .supercreator/xhs-images/EXTEND.md           │ Project directory │
 ├────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/xhs-images/EXTEND.md     │ User home         │
+│ $HOME/.supercreator/xhs-images/EXTEND.md     │ User home         │
 └────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────┐

@@ -39,25 +39,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/post-to-weibo/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/post-to-weibo/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/post-to-weibo/EXTEND.md" && echo "user"
+test -f .supercreator/post-to-weibo/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/post-to-weibo/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/post-to-weibo/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/post-to-weibo/EXTEND.md) { "project" }
+if (Test-Path .supercreator/post-to-weibo/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/post-to-weibo/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/post-to-weibo/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/post-to-weibo/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/post-to-weibo/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────┬───────────────────┐
 │                       Path                       │     Location      │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/post-to-weibo/EXTEND.md      │ Project directory │
+│ .supercreator/post-to-weibo/EXTEND.md      │ Project directory │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/post-to-weibo/EXTEND.md│ User home         │
+│ $HOME/.supercreator/post-to-weibo/EXTEND.md│ User home         │
 └──────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
@@ -154,7 +154,7 @@ Unless the user explicitly specifies the post type:
 If a script fails with `Chrome debug port not ready` or `Unable to connect`, kill only the CDP Chrome instances (those with `--remote-debugging-port` AND the baoyu-skills profile), then retry:
 
 ```bash
-pkill -f "remote-debugging-port.*baoyu-skills/chrome-profile" 2>/dev/null; sleep 2
+pkill -f "remote-debugging-port.*supercreator/chrome-profile" 2>/dev/null; sleep 2
 ```
 
 **CRITICAL**: Never kill all Chrome processes (`pkill -f "Google Chrome"`). Only kill Chrome instances launched by CDP with the supercreator profile directory. The user may have regular Chrome windows open.

@@ -142,11 +142,11 @@ Environment variables:
   AZURE_API_VERSION         Azure API version (default: 2025-04-01-preview)
   AZURE_OPENAI_IMAGE_MODEL  Backward-compatible Azure deployment/model alias (defaults to gpt-image-1.5)
   SEEDREAM_BASE_URL         Custom Seedream endpoint
-  BAOYU_IMAGE_GEN_MAX_WORKERS  Override batch worker cap
-  BAOYU_IMAGE_GEN_<PROVIDER>_CONCURRENCY  Override provider concurrency
-  BAOYU_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS  Override provider start gap in ms
+  SC_IMAGE_GEN_MAX_WORKERS  Override batch worker cap
+   SC_IMAGE_GEN_<PROVIDER>_CONCURRENCY  Override provider concurrency
+   SC_IMAGE_GEN_<PROVIDER>_START_INTERVAL_MS  Override provider start gap in ms
 
-Env file load order: CLI args > EXTEND.md > process.env > <cwd>/.baoyu-skills/.env > ~/.baoyu-skills/.env`);
+Env file load order: CLI args > EXTEND.md > process.env > <cwd>/.supercreator/.env > ~/.supercreator/.env`);
 }
 
 export function parseArgs(argv: string[]): CliArgs {
@@ -342,8 +342,8 @@ async function loadEnv(): Promise<void> {
   const home = homedir();
   const cwd = process.cwd();
 
-  const homeEnv = await loadEnvFile(path.join(home, ".baoyu-skills", ".env"));
-  const cwdEnv = await loadEnvFile(path.join(cwd, ".baoyu-skills", ".env"));
+  const homeEnv = await loadEnvFile(path.join(home, ".supercreator", ".env"));
+  const cwdEnv = await loadEnvFile(path.join(cwd, ".supercreator", ".env"));
 
   for (const [k, v] of Object.entries(homeEnv)) {
     if (!process.env[k]) process.env[k] = v;
@@ -479,12 +479,12 @@ type ExtendConfigPathPair = {
 function getExtendConfigPathPairs(cwd: string, home: string): ExtendConfigPathPair[] {
   return [
     {
-      current: path.join(cwd, ".baoyu-skills", "imagine", "EXTEND.md"),
-      legacy: path.join(cwd, ".baoyu-skills", "baoyu-image-gen", "EXTEND.md"),
+      current: path.join(cwd, ".supercreator", "imagine", "EXTEND.md"),
+      legacy: path.join(cwd, ".supercreator", "baoyu-image-gen", "EXTEND.md"),
     },
     {
-      current: path.join(home, ".baoyu-skills", "imagine", "EXTEND.md"),
-      legacy: path.join(home, ".baoyu-skills", "baoyu-image-gen", "EXTEND.md"),
+      current: path.join(home, ".supercreator", "imagine", "EXTEND.md"),
+      legacy: path.join(home, ".supercreator", "baoyu-image-gen", "EXTEND.md"),
     },
   ];
 }
@@ -546,7 +546,7 @@ export function parsePositiveBatchInt(value: unknown): number | null {
 }
 
 export function getConfiguredMaxWorkers(extendConfig: Partial<ExtendConfig>): number {
-  const envValue = parsePositiveInt(process.env.BAOYU_IMAGE_GEN_MAX_WORKERS);
+  const envValue = parsePositiveInt(process.env.SC_IMAGE_GEN_MAX_WORKERS);
   const configValue = extendConfig.batch?.max_workers ?? null;
   return Math.max(1, envValue ?? configValue ?? DEFAULT_MAX_WORKERS);
 }
@@ -567,7 +567,7 @@ export function getConfiguredProviderRateLimits(
   };
 
   for (const provider of ["replicate", "google", "openai", "openrouter", "dashscope", "minimax", "jimeng", "seedream", "azure"] as Provider[]) {
-    const envPrefix = `BAOYU_IMAGE_GEN_${provider.toUpperCase()}`;
+    const envPrefix = `SC_IMAGE_GEN_${provider.toUpperCase()}`;
     const extendLimit = extendConfig.batch?.provider_limits?.[provider];
     configured[provider] = {
       concurrency:
@@ -695,7 +695,7 @@ export function detectProvider(args: CliArgs): Provider {
 
   throw new Error(
     "No API key found. Set GOOGLE_API_KEY, GEMINI_API_KEY, OPENAI_API_KEY, AZURE_OPENAI_API_KEY+AZURE_OPENAI_BASE_URL, OPENROUTER_API_KEY, DASHSCOPE_API_KEY, MINIMAX_API_KEY, REPLICATE_API_TOKEN, JIMENG keys, or ARK_API_KEY.\n" +
-      "Create ~/.baoyu-skills/.env or <cwd>/.baoyu-skills/.env with your keys."
+      "Create ~/.supercreator/.env or <cwd>/.supercreator/.env with your keys."
   );
 }
 

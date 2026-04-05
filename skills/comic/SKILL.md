@@ -252,8 +252,8 @@ Compress to reduce token usage when used as reference image:
 
 | Path | Location |
 |------|----------|
-| `.baoyu-skills/comic/EXTEND.md` | Project directory |
-| `$HOME/.baoyu-skills/comic/EXTEND.md` | User home |
+| `.supercreator/comic/EXTEND.md` | Project directory |
+| `$HOME/.supercreator/comic/EXTEND.md` | User home |
 
 | Result | Action |
 |--------|--------|

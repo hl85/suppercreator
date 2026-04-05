@@ -29,25 +29,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/markdown-to-html/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/markdown-to-html/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/markdown-to-html/EXTEND.md" && echo "user"
+test -f .supercreator/markdown-to-html/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/markdown-to-html/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/markdown-to-html/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/markdown-to-html/EXTEND.md) { "project" }
+if (Test-Path .supercreator/markdown-to-html/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/markdown-to-html/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/markdown-to-html/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/markdown-to-html/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/markdown-to-html/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────────────────┬───────────────────┐
 │                             Path                             │     Location      │
 ├──────────────────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/markdown-to-html/EXTEND.md               │ Project directory │
+│ .supercreator/markdown-to-html/EXTEND.md               │ Project directory │
 ├──────────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/markdown-to-html/EXTEND.md         │ User home         │
+│ $HOME/.supercreator/markdown-to-html/EXTEND.md         │ User home         │
 └──────────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
@@ -95,12 +95,12 @@ Use `AskUserQuestion` to ask whether to format first. Formatting can fix:
 
 ```bash
 # Check post-to-wechat EXTEND.md for default_theme
-test -f "$HOME/.baoyu-skills/post-to-wechat/EXTEND.md" && grep -o 'default_theme:.*' "$HOME/.baoyu-skills/post-to-wechat/EXTEND.md"
+test -f "$HOME/.supercreator/post-to-wechat/EXTEND.md" && grep -o 'default_theme:.*' "$HOME/.supercreator/post-to-wechat/EXTEND.md"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path "$HOME/.baoyu-skills/post-to-wechat/EXTEND.md") { Select-String -Pattern 'default_theme:.*' -Path "$HOME/.baoyu-skills/post-to-wechat/EXTEND.md" | ForEach-Object { $_.Matches.Value } }
+if (Test-Path "$HOME/.supercreator/post-to-wechat/EXTEND.md") { Select-String -Pattern 'default_theme:.*' -Path "$HOME/.supercreator/post-to-wechat/EXTEND.md" | ForEach-Object { $_.Matches.Value } }
 ```
 
 **If theme is resolved from EXTEND.md**: Use it directly, do NOT ask the user.

@@ -175,8 +175,8 @@ test("loadExtendConfig ignores legacy EXTEND.md when the new path is missing", a
   const root = await makeTempDir("imagine-extend-");
   const cwd = path.join(root, "project");
   const home = path.join(root, "home");
-  const legacyPath = path.join(cwd, ".baoyu-skills", "baoyu-image-gen", "EXTEND.md");
-  const currentPath = path.join(cwd, ".baoyu-skills", "imagine", "EXTEND.md");
+  const legacyPath = path.join(cwd, ".supercreator", "baoyu-image-gen", "EXTEND.md");
+  const currentPath = path.join(cwd, ".supercreator", "imagine", "EXTEND.md");
 
   await fs.mkdir(path.dirname(legacyPath), { recursive: true });
   await fs.mkdir(home, { recursive: true });
@@ -197,8 +197,8 @@ test("loadExtendConfig leaves legacy EXTEND.md untouched when both paths exist",
   const root = await makeTempDir("imagine-extend-dual-");
   const cwd = path.join(root, "project");
   const home = path.join(root, "home");
-  const legacyPath = path.join(cwd, ".baoyu-skills", "baoyu-image-gen", "EXTEND.md");
-  const currentPath = path.join(cwd, ".baoyu-skills", "imagine", "EXTEND.md");
+  const legacyPath = path.join(cwd, ".supercreator", "baoyu-image-gen", "EXTEND.md");
+  const currentPath = path.join(cwd, ".supercreator", "imagine", "EXTEND.md");
 
   await fs.mkdir(path.dirname(legacyPath), { recursive: true });
   await fs.mkdir(path.dirname(currentPath), { recursive: true });
@@ -371,9 +371,9 @@ test("detectProvider selects MiniMax when only MiniMax credentials are configure
 
 test("batch worker and provider-rate-limit configuration prefer env over EXTEND config", (t) => {
   useEnv(t, {
-    BAOYU_IMAGE_GEN_MAX_WORKERS: "12",
-    BAOYU_IMAGE_GEN_GOOGLE_CONCURRENCY: "5",
-    BAOYU_IMAGE_GEN_GOOGLE_START_INTERVAL_MS: "450",
+    SC_IMAGE_GEN_MAX_WORKERS: "12",
+    SC_IMAGE_GEN_GOOGLE_CONCURRENCY: "5",
+    SC_IMAGE_GEN_GOOGLE_START_INTERVAL_MS: "450",
   });
 
   const extendConfig: Partial<ExtendConfig> = {

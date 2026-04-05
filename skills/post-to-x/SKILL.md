@@ -43,25 +43,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/post-to-x/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/post-to-x/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/post-to-x/EXTEND.md" && echo "user"
+test -f .supercreator/post-to-x/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/post-to-x/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/post-to-x/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/post-to-x/EXTEND.md) { "project" }
+if (Test-Path .supercreator/post-to-x/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/post-to-x/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/post-to-x/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/post-to-x/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/post-to-x/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────┬───────────────────┐
 │                       Path                       │     Location      │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/post-to-x/EXTEND.md          │ Project directory │
+│ .supercreator/post-to-x/EXTEND.md          │ Project directory │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/post-to-x/EXTEND.md    │ User home         │
+│ $HOME/.supercreator/post-to-x/EXTEND.md    │ User home         │
 └──────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
@@ -95,7 +95,7 @@ Checks: Chrome, profile isolation, Bun, Accessibility, clipboard, paste keystrok
 | Check | Fix |
 |-------|-----|
 | Chrome | Install Chrome or set `X_BROWSER_CHROME_PATH` env var |
-| Profile dir | Shared profile at `baoyu-skills/chrome-profile` (see CLAUDE.md Chrome Profile section) |
+| Profile dir | Shared profile at `supercreator/chrome-profile` (see CLAUDE.md Chrome Profile section) |
 | Bun runtime | `brew install oven-sh/bun/bun` (macOS) or `npm install -g bun` |
 | Accessibility (macOS) | System Settings → Privacy & Security → Accessibility → enable terminal app |
 | Clipboard copy | Ensure Swift/AppKit available (macOS Xcode CLI tools: `xcode-select --install`) |

@@ -95,7 +95,7 @@ function getWslWindowsHome(): string | null {
 
 export function getDefaultProfileDir(): string {
   return resolveSharedChromeProfileDir({
-    envNames: ['BAOYU_CHROME_PROFILE_DIR', 'X_BROWSER_PROFILE_DIR'],
+    envNames: ['SC_CHROME_PROFILE_DIR', 'X_BROWSER_PROFILE_DIR'],
     wslWindowsHome: getWslWindowsHome(),
   });
 }

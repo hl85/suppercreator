@@ -41,3 +41,15 @@
 - Successfully renamed via single chained `git mv` command: post-to-wechat, post-to-weibo, post-to-x, markdown-to-html, format-markdown, translate
 - All 6 renames staged, verified via `git status` and `ls skills/`
 - Remaining baoyu- prefixed dirs: baoyu-danger-gemini-web, baoyu-danger-x-to-markdown, baoyu-url-to-markdown, baoyu-xhs-images, baoyu-youtube-transcript (Batch C)
+
+## [2026-04-06] Task 9: Update cross-skill references in SKILL.md bodies and scripts
+
+- Used Python script to process all 18 SKILL.md files — detecting YAML front matter boundaries (skipped `---`-delimited header blocks) and replacing skill name refs in body text only
+- 17 files updated, 1 unchanged (youtube-transcript had no body refs)
+- Replacements in SKILL.md body: `/baoyu-<skill>` CLI commands → `/<skill>`, backtick-quoted names, `.baoyu-skills/baoyu-<skill>/` paths → `.baoyu-skills/<skill>/`, `baoyu-fetch` → `sc-fetch`
+- Two manual post-hoc fixes needed: markdown-to-html line 97 comment, imagine line 257 compatibility text
+- Script files updated: article-illustrator/build-batch.ts, comic/merge-to-pdf.ts, slide-deck/merge-to-pptx.ts, slide-deck/merge-to-pdf.ts, post-to-x/check-paste-permissions.ts, post-to-wechat/check-permissions.ts, post-to-wechat/wechat-extend-config.ts, imagine/main.ts (EXTEND path pairs), imagine/main.test.ts (temp dirs + describe text), imagine/providers/azure.test.ts (temp dir), imagine/providers/dashscope.ts (error msg), markdown-to-html/main.test.ts (temp dir)
+- Intentionally skipped: runtime `APP_DATA_DIR = 'baoyu-skills'` in paths.ts files (Task 10), `.baoyu-skills/.env` references (Task 10), `BAOYU_` env vars (Task 11), vendor dirs
+- `wechat-extend-config.ts` had the skill subdir in XDG_CONFIG_HOME path too — needed 3-path replacement not just 2
+- grep pattern for final check: `grep -rn 'baoyu-' skills/*/scripts/ --include='*.ts' | grep -v '/vendor/' | grep -v 'baoyu-skills' | grep -v 'BAOYU_'` → zero matches
+- 119 tests pass, vendor sync clean, commit 6928fd0

@@ -36,10 +36,10 @@ Scripts located in `scripts/` subdirectory.
 
 ```bash
 # macOS
-cat ~/Library/Application\ Support/baoyu-skills/x-to-markdown/consent.json
+cat ~/Library/Application\ Support/supercreator/x-to-markdown/consent.json
 
 # Linux
-cat ~/.local/share/baoyu-skills/x-to-markdown/consent.json
+cat ~/.local/share/supercreator/x-to-markdown/consent.json
 ```
 
 **Step 2**: If `accepted: true` and `disclaimerVersion: "1.0"` → print warning and proceed:
@@ -82,25 +82,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/danger-x-to-markdown/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/danger-x-to-markdown/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/danger-x-to-markdown/EXTEND.md" && echo "user"
+test -f .supercreator/danger-x-to-markdown/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/danger-x-to-markdown/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/danger-x-to-markdown/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/danger-x-to-markdown/EXTEND.md) { "project" }
+if (Test-Path .supercreator/danger-x-to-markdown/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/danger-x-to-markdown/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/danger-x-to-markdown/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/danger-x-to-markdown/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/danger-x-to-markdown/EXTEND.md") { "user" }
 ```
 
 ┌────────────────────────────────────────────────────────────┬───────────────────┐
 │                            Path                            │     Location      │
 ├────────────────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/danger-x-to-markdown/EXTEND.md         │ Project directory │
+│ .supercreator/danger-x-to-markdown/EXTEND.md         │ Project directory │
 ├────────────────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/danger-x-to-markdown/EXTEND.md   │ User home         │
+│ $HOME/.supercreator/danger-x-to-markdown/EXTEND.md   │ User home         │
 └────────────────────────────────────────────────────────────┴───────────────────┘
 
 ┌───────────┬───────────────────────────────────────────────────────────────────────────┐
@@ -129,8 +129,8 @@ Use `AskUserQuestion` with ALL questions in ONE call:
 - (User may choose "Other" to type a custom path)
 
 **Question 3** — header: "Save", question: "Where to save preferences?"
-- "User (Recommended)" — ~/.baoyu-skills/ (all projects)
-- "Project" — .baoyu-skills/ (this project only)
+- "User (Recommended)" — ~/.supercreator/ (all projects)
+- "Project" — .supercreator/ (this project only)
 
 After user answers, create EXTEND.md at the chosen location, confirm "Preferences saved to [path]", then continue.
 

@@ -202,25 +202,25 @@ Check EXTEND.md existence (priority order):
 
 ```bash
 # macOS, Linux, WSL, Git Bash
-test -f .baoyu-skills/slide-deck/EXTEND.md && echo "project"
-test -f "${XDG_CONFIG_HOME:-$HOME/.config}/baoyu-skills/slide-deck/EXTEND.md" && echo "xdg"
-test -f "$HOME/.baoyu-skills/slide-deck/EXTEND.md" && echo "user"
+test -f .supercreator/slide-deck/EXTEND.md && echo "project"
+test -f "${XDG_CONFIG_HOME:-$HOME/.config}/supercreator/slide-deck/EXTEND.md" && echo "xdg"
+test -f "$HOME/.supercreator/slide-deck/EXTEND.md" && echo "user"
 ```
 
 ```powershell
 # PowerShell (Windows)
-if (Test-Path .baoyu-skills/slide-deck/EXTEND.md) { "project" }
+if (Test-Path .supercreator/slide-deck/EXTEND.md) { "project" }
 $xdg = if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { "$HOME/.config" }
-if (Test-Path "$xdg/baoyu-skills/slide-deck/EXTEND.md") { "xdg" }
-if (Test-Path "$HOME/.baoyu-skills/slide-deck/EXTEND.md") { "user" }
+if (Test-Path "$xdg/supercreator/slide-deck/EXTEND.md") { "xdg" }
+if (Test-Path "$HOME/.supercreator/slide-deck/EXTEND.md") { "user" }
 ```
 
 ┌──────────────────────────────────────────────────┬───────────────────┐
 │                       Path                       │     Location      │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ .baoyu-skills/slide-deck/EXTEND.md         │ Project directory │
+│ .supercreator/slide-deck/EXTEND.md         │ Project directory │
 ├──────────────────────────────────────────────────┼───────────────────┤
-│ $HOME/.baoyu-skills/slide-deck/EXTEND.md   │ User home         │
+│ $HOME/.supercreator/slide-deck/EXTEND.md   │ User home         │
 └──────────────────────────────────────────────────┴───────────────────┘
 
 **When EXTEND.md Found** → Read, parse, **output summary to user**:
