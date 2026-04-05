@@ -23,7 +23,7 @@ async function writeJson(filePath: string, value: unknown): Promise<void> {
 }
 
 test("listReleaseFiles skips generated paths and returns sorted relative paths", async (t) => {
-  const root = await makeTempDir("baoyu-release-files-");
+  const root = await makeTempDir("sc-release-files-");
   t.after(() => fs.rm(root, { recursive: true, force: true }));
 
   await writeFile(path.join(root, "b.txt"), "b");
@@ -46,7 +46,7 @@ test("listReleaseFiles skips generated paths and returns sorted relative paths",
 });
 
 test("validateSelfContainedRelease accepts file dependencies that stay within the release root", async (t) => {
-  const root = await makeTempDir("baoyu-release-ok-");
+  const root = await makeTempDir("sc-release-ok-");
   t.after(() => fs.rm(root, { recursive: true, force: true }));
 
   await writeJson(path.join(root, "shared", "package.json"), {
@@ -66,7 +66,7 @@ test("validateSelfContainedRelease accepts file dependencies that stay within th
 });
 
 test("validateSelfContainedRelease rejects missing local file dependencies", async (t) => {
-  const root = await makeTempDir("baoyu-release-missing-");
+  const root = await makeTempDir("sc-release-missing-");
   t.after(() => fs.rm(root, { recursive: true, force: true }));
 
   await writeJson(path.join(root, "skill", "package.json"), {
@@ -84,8 +84,8 @@ test("validateSelfContainedRelease rejects missing local file dependencies", asy
 });
 
 test("validateSelfContainedRelease rejects file dependencies outside the release root", async (t) => {
-  const root = await makeTempDir("baoyu-release-root-");
-  const outside = await makeTempDir("baoyu-release-outside-");
+  const root = await makeTempDir("sc-release-root-");
+  const outside = await makeTempDir("sc-release-outside-");
   t.after(() => fs.rm(root, { recursive: true, force: true }));
   t.after(() => fs.rm(outside, { recursive: true, force: true }));
 

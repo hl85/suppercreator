@@ -20,35 +20,35 @@ async function writeJson(filePath: string, value: unknown): Promise<void> {
 }
 
 test("syncSharedSkillPackages vendors workspace packages into skill scripts", async (t) => {
-  const root = await makeTempDir("baoyu-sync-shared-");
+  const root = await makeTempDir("sc-sync-shared-");
   t.after(() => fs.rm(root, { recursive: true, force: true }));
 
-  await writeJson(path.join(root, "packages", "baoyu-md", "package.json"), {
-    name: "baoyu-md",
+  await writeJson(path.join(root, "packages", "sc-md", "package.json"), {
+    name: "sc-md",
     version: "1.0.0",
   });
   await writeFile(
-    path.join(root, "packages", "baoyu-md", "src", "index.ts"),
+    path.join(root, "packages", "sc-md", "src", "index.ts"),
     "export const markdown = true;\n",
   );
   await writeFile(
-    path.join(root, "packages", "baoyu-md", "src", "index.test.ts"),
+    path.join(root, "packages", "sc-md", "src", "index.test.ts"),
     "test('ignored', () => {});\n",
   );
   await writeFile(
-    path.join(root, "packages", "baoyu-md", "src", "__tests__", "helper.ts"),
+    path.join(root, "packages", "sc-md", "src", "__tests__", "helper.ts"),
     "export const helper = true;\n",
   );
   await writeFile(
-    path.join(root, "packages", "baoyu-md", "tests", "setup.ts"),
+    path.join(root, "packages", "sc-md", "tests", "setup.ts"),
     "export const setup = true;\n",
   );
   await writeFile(
-    path.join(root, "packages", "baoyu-md", ".changeset", "demo.md"),
+    path.join(root, "packages", "sc-md", ".changeset", "demo.md"),
     "---\n",
   );
   await writeFile(
-    path.join(root, "packages", "baoyu-md", "CHANGELOG.md"),
+    path.join(root, "packages", "sc-md", "CHANGELOG.md"),
     "# changelog\n",
   );
 
@@ -57,7 +57,7 @@ test("syncSharedSkillPackages vendors workspace packages into skill scripts", as
     name: "demo-skill-scripts",
     version: "1.0.0",
     dependencies: {
-      "baoyu-md": "^1.0.0",
+      "sc-md": "^1.0.0",
       kleur: "^4.1.5",
     },
   });
@@ -74,44 +74,44 @@ test("syncSharedSkillPackages vendors workspace packages into skill scripts", as
   const updatedPackageJson = JSON.parse(
     await fs.readFile(path.join(consumerDir, "package.json"), "utf8"),
   ) as { dependencies: Record<string, string> };
-  assert.equal(updatedPackageJson.dependencies["baoyu-md"], "file:./vendor/baoyu-md");
+  assert.equal(updatedPackageJson.dependencies["sc-md"], "file:./vendor/sc-md");
   assert.equal(updatedPackageJson.dependencies.kleur, "^4.1.5");
 
   const vendoredPackageJson = JSON.parse(
-    await fs.readFile(path.join(consumerDir, "vendor", "baoyu-md", "package.json"), "utf8"),
+    await fs.readFile(path.join(consumerDir, "vendor", "sc-md", "package.json"), "utf8"),
   ) as { name: string };
-  assert.equal(vendoredPackageJson.name, "baoyu-md");
+  assert.equal(vendoredPackageJson.name, "sc-md");
 
   const vendoredFile = await fs.readFile(
-    path.join(consumerDir, "vendor", "baoyu-md", "src", "index.ts"),
+    path.join(consumerDir, "vendor", "sc-md", "src", "index.ts"),
     "utf8",
   );
   assert.match(vendoredFile, /markdown = true/);
 
   await assert.rejects(
-    fs.readFile(path.join(consumerDir, "vendor", "baoyu-md", "src", "index.test.ts"), "utf8"),
+    fs.readFile(path.join(consumerDir, "vendor", "sc-md", "src", "index.test.ts"), "utf8"),
     { code: "ENOENT" },
   );
   await assert.rejects(
-    fs.readFile(path.join(consumerDir, "vendor", "baoyu-md", "src", "__tests__", "helper.ts"), "utf8"),
+    fs.readFile(path.join(consumerDir, "vendor", "sc-md", "src", "__tests__", "helper.ts"), "utf8"),
     { code: "ENOENT" },
   );
   await assert.rejects(
-    fs.readFile(path.join(consumerDir, "vendor", "baoyu-md", "tests", "setup.ts"), "utf8"),
+    fs.readFile(path.join(consumerDir, "vendor", "sc-md", "tests", "setup.ts"), "utf8"),
     { code: "ENOENT" },
   );
   await assert.rejects(
-    fs.readFile(path.join(consumerDir, "vendor", "baoyu-md", ".changeset", "demo.md"), "utf8"),
+    fs.readFile(path.join(consumerDir, "vendor", "sc-md", ".changeset", "demo.md"), "utf8"),
     { code: "ENOENT" },
   );
   await assert.rejects(
-    fs.readFile(path.join(consumerDir, "vendor", "baoyu-md", "CHANGELOG.md"), "utf8"),
+    fs.readFile(path.join(consumerDir, "vendor", "sc-md", "CHANGELOG.md"), "utf8"),
     { code: "ENOENT" },
   );
 });
 
 test("syncSharedSkillPackages respects package.json files allowlists", async (t) => {
-  const root = await makeTempDir("baoyu-sync-files-");
+  const root = await makeTempDir("sc-sync-files-");
   t.after(() => fs.rm(root, { recursive: true, force: true }));
 
   await writeJson(path.join(root, "packages", "demo-pkg", "package.json"), {
